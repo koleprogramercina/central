@@ -81,30 +81,22 @@
             </p>
         </div>
 
-        <!-- GALERIJA -->
-        <div class="gallery-grid" id="galleryGrid"></div>
+        <!-- GALERIJA CAROUSEL -->
+        <div class="carousel" id="carousel">
+            <div class="carousel-track" id="carouselTrack"></div>
+            <button class="carousel-btn carousel-prev" onclick="prevSlide()" aria-label="Prethodna">❮</button>
+            <button class="carousel-btn carousel-next" onclick="nextSlide()" aria-label="Sledeća">❯</button>
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
 
         <div class="gallery-note">
             <i class="fas fa-info-circle"></i>
             <p>
-                Kliknite na bilo koju sliku za uvećan prikaz.
+                Koristite strelice ili tačke za navigaciju kroz galeriju.
             </p>
         </div>
 
     </section>
-
-</div>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-
-    <span class="lightbox-close" onclick="closeLightbox()">×</span>
-
-    <span class="lightbox-prev" onclick="prevImage()">❮</span>
-    <span class="lightbox-next" onclick="nextImage()">❯</span>
-
-    <img id="lightboxImage" src="">
-    <div id="lightboxCaption"></div>
 
 </div>
 
@@ -113,8 +105,8 @@
     <div class="footer-content">
 
         <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/p/Central-GYM-61558646281643/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/centralgym.sm/?hl=en" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
         </div>
 
         <p>© 2024 Central Gym</p>
@@ -126,63 +118,115 @@
 <script src="js/loader.js"></script>
 
 <script>
-/* ====== GALERIJA (REMOTE SLIKE) ====== */
+/* ====== GALERIJA CAROUSEL (REMOTE SLIKE) ====== */
 
-const images = [
-    {
-        src: "https://images.unsplash.com/photo-1558611848-73f7eb4001a1",
-        caption: "Zona snage"
-    },
-    {
-        src: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f",
-        caption: "Kardio zona"
-    },
-    {
-        src: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438",
-        caption: "Trening"
-    }
+const slides = [
+    "https://plain-enam-prod-public.komododecks.com/202604/08/kwujfma7Ods43CQFJI92/image.png",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/naTt3V4wjUOOcUzagRgI/image.png",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/Hii8WFUQ6zXfup5lgLpm/image.png",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/nu5wZug6b4dAiX4E3DNU/image.png",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/ib6qreKt3ShEHvVlLlX5/image.png",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/XKRqwiz15aHHNbCuaAam/image.png",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/cHzkrN4ZBbOP56nICyOK/image.png",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/G6vGxybGGxPwy4NHAfbh/image.png",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/MlhoyC2h5nWctWXfKahx/image.png",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/Ak0cbjzDPLUZcYeTdgto/image.png",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/91Fut58Niqgd78LbhsoX/image.png",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/ogWujxQhRHCPSKYxFozb/image.png",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/h6o1dkThQGCGousqNkWx/image.png"
 ];
 
-const galleryGrid = document.getElementById("galleryGrid");
-let currentIndex = 0;
+const track = document.getElementById("carouselTrack");
+const dotsContainer = document.getElementById("carouselDots");
+const carousel = document.getElementById("carousel");
 
-/* Kreiranje galerije */
-images.forEach((img, index) => {
-    const div = document.createElement("div");
-    div.classList.add("gallery-item");
+let currentSlide = 0;
+let autoPlayInterval = null;
+const AUTOPLAY_MS = 4500;
 
-    div.innerHTML = `
-        <img src="${img.src}?w=800&q=80" alt="${img.caption}" onclick="openLightbox(${index})">
-    `;
+/* Build slides + dots */
+slides.forEach((src, i) => {
+    const slide = document.createElement("div");
+    slide.className = "carousel-slide";
+    slide.innerHTML = `<img src="${src}" alt="Central Gym ${i + 1}" loading="${i === 0 ? 'eager' : 'lazy'}">`;
+    track.appendChild(slide);
 
-    galleryGrid.appendChild(div);
+    const dot = document.createElement("button");
+    dot.className = "carousel-dot" + (i === 0 ? " active" : "");
+    dot.setAttribute("aria-label", "Slika " + (i + 1));
+    dot.addEventListener("click", () => goToSlide(i));
+    dotsContainer.appendChild(dot);
 });
 
-/* Lightbox */
-function openLightbox(index) {
-    currentIndex = index;
-    document.getElementById("lightbox").style.display = "flex";
-    updateLightbox();
+function updateCarousel() {
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    dotsContainer.querySelectorAll(".carousel-dot").forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentSlide);
+    });
 }
 
-function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateCarousel();
+    resetAutoPlay();
 }
 
-function nextImage() {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateLightbox();
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateCarousel();
+    resetAutoPlay();
 }
 
-function prevImage() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateLightbox();
+function goToSlide(i) {
+    currentSlide = i;
+    updateCarousel();
+    resetAutoPlay();
 }
 
-function updateLightbox() {
-    document.getElementById("lightboxImage").src = images[currentIndex].src;
-    document.getElementById("lightboxCaption").innerText = images[currentIndex].caption;
+function startAutoPlay() {
+    stopAutoPlay();
+    autoPlayInterval = setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateCarousel();
+    }, AUTOPLAY_MS);
 }
+
+function stopAutoPlay() {
+    if (autoPlayInterval) clearInterval(autoPlayInterval);
+    autoPlayInterval = null;
+}
+
+function resetAutoPlay() {
+    startAutoPlay();
+}
+
+/* Pause on hover */
+carousel.addEventListener("mouseenter", stopAutoPlay);
+carousel.addEventListener("mouseleave", startAutoPlay);
+
+/* Keyboard navigation */
+document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") nextSlide();
+    if (e.key === "ArrowLeft") prevSlide();
+});
+
+/* Basic swipe support (mobile) */
+let touchStartX = 0;
+track.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    stopAutoPlay();
+}, { passive: true });
+
+track.addEventListener("touchend", (e) => {
+    const diff = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(diff) > 50) {
+        if (diff < 0) nextSlide();
+        else prevSlide();
+    }
+    startAutoPlay();
+}, { passive: true });
+
+startAutoPlay();
 </script>
 
 <script src="js/main.js"></script>
