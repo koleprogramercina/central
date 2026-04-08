@@ -133,7 +133,12 @@ const slides = [
     "https://plain-enam-prod-public.komododecks.com/202604/08/Ak0cbjzDPLUZcYeTdgto/image.png",
     "https://plain-enam-prod-public.komododecks.com/202604/08/91Fut58Niqgd78LbhsoX/image.png",
     "https://plain-enam-prod-public.komododecks.com/202604/08/ogWujxQhRHCPSKYxFozb/image.png",
-    "https://plain-enam-prod-public.komododecks.com/202604/08/h6o1dkThQGCGousqNkWx/image.png"
+    "https://plain-enam-prod-public.komododecks.com/202604/08/h6o1dkThQGCGousqNkWx/image.png",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/XdYnBjRdrbLopFmoMp2g/image.jpg",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/8gGqDgrlqGsVIntn684Z/image.jpg",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/gYhI0m01mw5Gn1ZtqxKx/image.jpg",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/6doTFqJjVvDwGzV8E8Cf/image.jpg",
+    "https://plain-enam-prod-public.komododecks.com/202604/08/BSBCGOfC1ZRvvioyxH3L/image.jpg"
 ];
 
 const track = document.getElementById("carouselTrack");
@@ -148,6 +153,7 @@ const AUTOPLAY_MS = 4500;
 slides.forEach((src, i) => {
     const slide = document.createElement("div");
     slide.className = "carousel-slide";
+    slide.style.setProperty('--slide-bg', `url("${src}")`);
     slide.innerHTML = `<img src="${src}" alt="Central Gym ${i + 1}" loading="${i === 0 ? 'eager' : 'lazy'}">`;
     track.appendChild(slide);
 
