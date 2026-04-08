@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usluge - Central Gym</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="page-bg" style="background-image: url('assets/cntrl3.jpg')"></div>
+    <!-- Loader -->
+    <div class="loader-container" id="loader">
+        <div class="loader-content">
+            <div class="logo-loader">CENTRAL GYM</div>
+            <div class="weight-bar">
+                <div class="weight-plate left"></div>
+                <div class="bar">
+                    <div class="bar-fill" id="barFill"></div>
+                </div>
+                <div class="weight-plate right"></div>
+            </div>
+            <div class="loading-text" id="loadingText" data-sr="Učitavanje... 0%" data-en="Loading... 0%">Učitavanje... 0%</div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">CENTRAL GYM</a>
+            <div class="nav-right">
+                <button class="lang-switch" onclick="toggleLanguage()">EN</button>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Menu -->
+    <div class="menu-overlay" id="menuOverlay">
+        <ul class="nav-menu">
+            <li><a href="index.html" onclick="closeMenu()" data-sr="Početna" data-en="Home">Početna</a></li>
+            <li><a href="onama.html" onclick="closeMenu()" data-sr="O nama" data-en="About">O nama</a></li>
+            <li><a href="usluge.html" onclick="closeMenu()" data-sr="Usluge" data-en="Services">Usluge</a></li>
+            <li><a href="zauzetost.html" onclick="closeMenu()" data-sr="Zauzetost" data-en="Occupancy">Zauzetost</a></li>
+            <li><a href="cenovnik.html" onclick="closeMenu()" data-sr="Cenovnik" data-en="Pricing">Cenovnik</a></li>
+            <li><a href="pravilnik.html" onclick="closeMenu()" data-sr="Pravilnik" data-en="Rules">Pravilnik</a></li>
+            <li><a href="recenzije.html" onclick="closeMenu()" data-sr="Recenzije" data-en="Reviews">Recenzije</a></li>
+            <li><a href="galerija.html" onclick="closeMenu()" data-sr="Galerija" data-en="Gallery">Galerija</a></li>
+            <li><a href="kontakt.html" onclick="closeMenu()" data-sr="Kontakt" data-en="Contact">Kontakt</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Content -->
+    <div class="page-container">
+        <section class="page-section visible">
+            <h1 class="page-title" data-sr="Naše usluge" data-en="Our Services">Naše usluge</h1>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3 data-sr="Personalni treninzi" data-en="Personal Training">Personalni treninzi</h3>
+                    <p data-sr="Individualni pristup i prilagođen program treninga koji odgovara vašim ciljevima. Naši sertifikovani treneri će vam pomoći da postignete maksimalne rezultate." data-en="Individual approach and customized training program that suits your goals. Our certified trainers will help you achieve maximum results.">Individualni pristup i prilagođen program treninga koji odgovara vašim ciljevima. Naši sertifikovani treneri će vam pomoći da postignete maksimalne rezultate.</p>
+                    <ul class="service-features">
+                        <li data-sr="Individualni plan treninga" data-en="Individual training plan"><i class="fas fa-check"></i> Individualni plan treninga</li>
+                        <li data-sr="Plan ishrane" data-en="Nutrition plan"><i class="fas fa-check"></i> Plan ishrane</li>
+                        <li data-sr="Praćenje napretka" data-en="Progress tracking"><i class="fas fa-check"></i> Praćenje napretka</li>
+                        <li data-sr="24/7 podrška" data-en="24/7 support"><i class="fas fa-check"></i> 24/7 podrška</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-users"></i>
+                    <h3 data-sr="Grupni treninzi" data-en="Group Training">Grupni treninzi</h3>
+                    <p data-sr="Motivišuće grupne treninge vodi naš stručni tim trenera. Idealno za one koji vole druženje i zajedničku energiju." data-en="Motivating group training sessions led by our expert team of trainers. Ideal for those who enjoy socializing and shared energy.">Motivišuće grupne treninge vodi naš stručni tim trenera. Idealno za one koji vole druženje i zajedničku energiju.</p>
+                    <ul class="service-features">
+                        <li data-sr="CrossFit treninzi" data-en="CrossFit training"><i class="fas fa-check"></i> CrossFit treninzi</li>
+                        <li data-sr="HIIT programi" data-en="HIIT programs"><i class="fas fa-check"></i> HIIT programi</li>
+                        <li data-sr="Funkcionalni trening" data-en="Functional training"><i class="fas fa-check"></i> Funkcionalni trening</li>
+                        <li data-sr="Yoga i stretching" data-en="Yoga and stretching"><i class="fas fa-check"></i> Yoga i stretching</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3 data-sr="Kardio zona" data-en="Cardio Zone">Kardio zona</h3>
+                    <p data-sr="Moderna kardio oprema za poboljšanje izdržljivosti i sagorevanje kalorija. Trčanje, vožnja bicikla, veslanje i još mnogo toga." data-en="Modern cardio equipment for improving endurance and burning calories. Running, cycling, rowing and much more.">Moderna kardio oprema za poboljšanje izdržljivosti i sagorevanje kalorija. Trčanje, vožnja bicikla, veslanje i još mnogo toga.</p>
+                    <ul class="service-features">
+                        <li data-sr="Trake za trčanje" data-en="Treadmills"><i class="fas fa-check"></i> Trake za trčanje</li>
+                        <li data-sr="Sobni bicikli" data-en="Stationary bikes"><i class="fas fa-check"></i> Sobni bicikli</li>
+                        <li data-sr="Eliptični trenažeri" data-en="Elliptical trainers"><i class="fas fa-check"></i> Eliptični trenažeri</li>
+                        <li data-sr="Vesla" data-en="Rowing machines"><i class="fas fa-check"></i> Vesla</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3 data-sr="Zona snage" data-en="Strength Zone">Zona snage</h3>
+                    <p data-sr="Kompletna oprema za razvoj mišićne mase i jačanje cele muskulature. Od slobodnih tegova do najsavremenijih mašina." data-en="Complete equipment for muscle development and full body strengthening. From free weights to state-of-the-art machines.">Kompletna oprema za razvoj mišićne mase i jačanje cele muskulature. Od slobodnih tegova do najsavremenijih mašina.</p>
+                    <ul class="service-features">
+                        <li data-sr="Slobodni tegovi" data-en="Free weights"><i class="fas fa-check"></i> Slobodni tegovi</li>
+                        <li data-sr="Smith mašina" data-en="Smith machine"><i class="fas fa-check"></i> Smith mašina</li>
+                        <li data-sr="Leg press" data-en="Leg press"><i class="fas fa-check"></i> Leg press</li>
+                        <li data-sr="Cable mašine" data-en="Cable machines"><i class="fas fa-check"></i> Cable mašine</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-apple-alt"></i>
+                    <h3 data-sr="Nutritivno savetovanje" data-en="Nutritional Counseling">Nutritivno savetovanje</h3>
+                    <p data-sr="Stručni nutritionisti će vam pomoći da kreirate idealan plan ishrane za vaše ciljeve - bilo da želite smršati, dobiti masu ili održati formu." data-en="Expert nutritionists will help you create the ideal nutrition plan for your goals - whether you want to lose weight, gain mass, or maintain shape.">Stručni nutritionisti će vam pomoći da kreirate idealan plan ishrane za vaše ciljeve - bilo da želite smršati, dobiti masu ili održati formu.</p>
+                    <ul class="service-features">
+                        <li data-sr="Personalizovani plan ishrane" data-en="Personalized nutrition plan"><i class="fas fa-check"></i> Personalizovani plan ishrane</li>
+                        <li data-sr="Praćenje unosa makronutrijenata" data-en="Macronutrient intake tracking"><i class="fas fa-check"></i> Praćenje unosa makronutrijenata</li>
+                        <li data-sr="Saveti o suplementima" data-en="Supplement advice"><i class="fas fa-check"></i> Saveti o suplementima</li>
+                        <li data-sr="Recepti i ideje" data-en="Recipes and ideas"><i class="fas fa-check"></i> Recepti i ideje</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h3 data-sr="Analiza tela" data-en="Body Analysis">Analiza tela</h3>
+                    <p data-sr="Detaljno merenje telesnog sastava kako biste pratili napredak i prilagodili trening i ishranu." data-en="Detailed body composition measurement to track progress and adjust training and nutrition.">Detaljno merenje telesnog sastava kako biste pratili napredak i prilagodili trening i ishranu.</p>
+                    <ul class="service-features">
+                        <li data-sr="InBody merenje" data-en="InBody measurement"><i class="fas fa-check"></i> InBody merenje</li>
+                        <li data-sr="Procenat masti" data-en="Body fat percentage"><i class="fas fa-check"></i> Procenat masti</li>
+                        <li data-sr="Mišićna masa" data-en="Muscle mass"><i class="fas fa-check"></i> Mišićna masa</li>
+                        <li data-sr="Mesečno praćenje" data-en="Monthly tracking"><i class="fas fa-check"></i> Mesečno praćenje</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="services-cta">
+                <h3 data-sr="Zainteresovani ste za neku od naših usluga?" data-en="Interested in any of our services?">Zainteresovani ste za neku od naših usluga?</h3>
+                <p data-sr="Kontaktirajte nas za više informacija ili zakažite besplatnu konsultaciju" data-en="Contact us for more information or schedule a free consultation">Kontaktirajte nas za više informacija ili zakažite besplatnu konsultaciju</p>
+                <a href="kontakt.html" class="cta-button" data-sr="Kontaktirajte nas" data-en="Contact Us">Kontaktirajte nas</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright" data-sr="© 2024 Central Gym. Sva prava zadržana." data-en="© 2024 Central Gym. All rights reserved.">© 2024 Central Gym. Sva prava zadržana.</p>
+        </div>
+    </footer>
+
+    <script src="js/loader.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

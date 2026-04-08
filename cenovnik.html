@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cenovnik - Central Gym</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="page-bg" style="background-image: url('assets/cntrl5.jpg')"></div>
+    <!-- Loader -->
+    <div class="loader-container" id="loader">
+        <div class="loader-content">
+            <div class="logo-loader">CENTRAL GYM</div>
+            <div class="weight-bar">
+                <div class="weight-plate left"></div>
+                <div class="bar">
+                    <div class="bar-fill" id="barFill"></div>
+                </div>
+                <div class="weight-plate right"></div>
+            </div>
+            <div class="loading-text" id="loadingText" data-sr="Učitavanje... 0%" data-en="Loading... 0%">Učitavanje... 0%</div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">CENTRAL GYM</a>
+            <div class="nav-right">
+                <button class="lang-switch" onclick="toggleLanguage()">EN</button>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Menu -->
+    <div class="menu-overlay" id="menuOverlay">
+        <ul class="nav-menu">
+            <li><a href="index.html" onclick="closeMenu()" data-sr="Početna" data-en="Home">Početna</a></li>
+            <li><a href="onama.html" onclick="closeMenu()" data-sr="O nama" data-en="About">O nama</a></li>
+            <li><a href="usluge.html" onclick="closeMenu()" data-sr="Usluge" data-en="Services">Usluge</a></li>
+            <li><a href="zauzetost.html" onclick="closeMenu()" data-sr="Zauzetost" data-en="Occupancy">Zauzetost</a></li>
+            <li><a href="cenovnik.html" onclick="closeMenu()" data-sr="Cenovnik" data-en="Pricing">Cenovnik</a></li>
+            <li><a href="pravilnik.html" onclick="closeMenu()" data-sr="Pravilnik" data-en="Rules">Pravilnik</a></li>
+            <li><a href="recenzije.html" onclick="closeMenu()" data-sr="Recenzije" data-en="Reviews">Recenzije</a></li>
+            <li><a href="galerija.html" onclick="closeMenu()" data-sr="Galerija" data-en="Gallery">Galerija</a></li>
+            <li><a href="kontakt.html" onclick="closeMenu()" data-sr="Kontakt" data-en="Contact">Kontakt</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Content -->
+    <div class="page-container">
+        <section class="page-section visible">
+            <h1 class="page-title" data-sr="Cenovnik" data-en="Pricing">Cenovnik</h1>
+
+            <div class="pricing-container">
+                <div class="pricing-section">
+                    <h3 data-sr="Paketi M" data-en="Packages M">Paketi M</h3>
+                    <div class="pricing-grid">
+                        <div class="price-card">
+                            <h4>Central 30</h4>
+                            <div class="price">2500 <span>RSD</span></div>
+                            <p data-sr="30 dana članarine" data-en="30 days membership">30 dana članarine</p>
+                        </div>
+                        <div class="price-card featured">
+                            <h4>Central 90</h4>
+                            <div class="price">6200 <span>RSD</span></div>
+                            <p data-sr="90 dana članarine" data-en="90 days membership">90 dana članarine</p>
+                            <div class="badge" data-sr="Najpopularnije" data-en="Most Popular">Najpopularnije</div>
+                        </div>
+                        <div class="price-card">
+                            <h4>Central 180</h4>
+                            <div class="price">11000 <span>RSD</span></div>
+                            <p data-sr="180 dana članarine" data-en="180 days membership">180 dana članarine</p>
+                        </div>
+                        <div class="price-card">
+                            <h4>Central 360</h4>
+                            <div class="price">19500 <span>RSD</span></div>
+                            <p data-sr="360 dana članarine" data-en="360 days membership">360 dana članarine</p>
+                            <div class="badge" data-sr="Najbolja ponuda" data-en="Best Deal">Najbolja ponuda</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-section">
+                    <h3 data-sr="Paketi Ž" data-en="Packages F">Paketi Ž</h3>
+                    <div class="pricing-grid">
+                        <div class="price-card">
+                            <h4>Central 30</h4>
+                            <div class="price">2000 <span>RSD</span></div>
+                            <p data-sr="30 dana članarine" data-en="30 days membership">30 dana članarine</p>
+                        </div>
+                        <div class="price-card featured">
+                            <h4>Central 90</h4>
+                            <div class="price">5000 <span>RSD</span></div>
+                            <p data-sr="90 dana članarine" data-en="90 days membership">90 dana članarine</p>
+                            <div class="badge" data-sr="Najpopularnije" data-en="Most Popular">Najpopularnije</div>
+                        </div>
+                        <div class="price-card">
+                            <h4>Central 180</h4>
+                            <div class="price">8500 <span>RSD</span></div>
+                            <p data-sr="180 dana članarine" data-en="180 days membership">180 dana članarine</p>
+                        </div>
+                        <div class="price-card">
+                            <h4>Central 360</h4>
+                            <div class="price">15000 <span>RSD</span></div>
+                            <p data-sr="360 dana članarine" data-en="360 days membership">360 dana članarine</p>
+                            <div class="badge" data-sr="Najbolja ponuda" data-en="Best Deal">Najbolja ponuda</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="daily-training">
+                    <h4 data-sr="Dnevni trening" data-en="Daily Training">Dnevni trening</h4>
+                    <div class="price">300 <span>RSD</span></div>
+                    <p data-sr="Jednodnevna karta za korišćenje teretane" data-en="One-day pass for gym use">Jednodnevna karta za korišćenje teretane</p>
+                </div>
+
+                <div class="pricing-info">
+                    <h3 data-sr="Šta je uključeno u članarinu?" data-en="What's included in membership?"><i class="fas fa-info-circle"></i> Šta je uključeno u članarinu?</h3>
+                    <ul class="included-list">
+                        <li data-sr="Neograničen pristup teretani" data-en="Unlimited gym access"><i class="fas fa-check"></i> Neograničen pristup teretani</li>
+                        <li data-sr="Pristup svim zonama (snaga, kardio, funkcionalni trening)" data-en="Access to all zones (strength, cardio, functional training)"><i class="fas fa-check"></i> Pristup svim zonama (snaga, kardio, funkcionalni trening)</li>
+                        <li data-sr="Besplatna inicijalna konsultacija sa trenerom" data-en="Free initial consultation with a trainer"><i class="fas fa-check"></i> Besplatna inicijalna konsultacija sa trenerom</li>
+                        <li data-sr="Korišćenje svlačionica i tuš kabina" data-en="Use of locker rooms and showers"><i class="fas fa-check"></i> Korišćenje svlačionica i tuš kabina</li>
+                        <li data-sr="Wi-Fi pristup" data-en="Wi-Fi access"><i class="fas fa-check"></i> Wi-Fi pristup</li>
+                        <li data-sr="Ormarići za lične stvari" data-en="Lockers for personal belongings"><i class="fas fa-check"></i> Ormarići za lične stvari</li>
+                        <li data-sr="Praćenje zauzetosti u realnom vremenu" data-en="Real-time occupancy tracking"><i class="fas fa-check"></i> Praćenje zauzetosti u realnom vremenu</li>
+                        <li data-sr="Popust na personalne treninge" data-en="Discount on personal training"><i class="fas fa-check"></i> Popust na personalne treninge</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-note">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h3 data-sr="Saveti za uštedu" data-en="Saving Tips">Saveti za uštedu</h3>
+                        <p data-sr="nudi najveću uštedu - ekvivalent 16 meseci po ceni 12!" data-en="Annual membership offers the biggest savings - equivalent of 16 months for the price of 12!"><strong data-sr="Godišnja članarina" data-en="Annual membership">Godišnja članarina</strong> nudi najveću uštedu - ekvivalent 16 meseci po ceni 12!</p>
+                        <p data-sr="- Dobijate 10% popusta na sledeću članarinu." data-en="Get 10% discount on your next membership."><strong data-sr="Dovedite prijatelja" data-en="Bring a Friend">Dovedite prijatelja</strong> - Dobijate 10% popusta na sledeću članarinu.</p>
+                        <p data-sr="- Studenti ostvaruju dodatnih 15% popusta uz važeću indeks karticu." data-en="Students get an additional 15% discount with a valid student ID."><strong data-sr="Studentski popust" data-en="Student Discount">Studentski popust</strong> - Studenti ostvaruju dodatnih 15% popusta uz važeću indeks karticu.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright" data-sr="© 2024 Central Gym. Sva prava zadržana." data-en="© 2024 Central Gym. All rights reserved.">© 2024 Central Gym. Sva prava zadržana.</p>
+        </div>
+    </footer>
+
+    <script src="js/loader.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerija - Central Gym</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader-container" id="loader">
+        <div class="loader-content">
+            <div class="logo-loader">CENTRAL GYM</div>
+            <div class="weight-bar">
+                <div class="weight-plate left"></div>
+                <div class="bar">
+                    <div class="bar-fill" id="barFill"></div>
+                </div>
+                <div class="weight-plate right"></div>
+            </div>
+            <div class="loading-text" id="loadingText" data-sr="Učitavanje... 0%" data-en="Loading... 0%">Učitavanje... 0%</div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">CENTRAL GYM</a>
+            <div class="nav-right">
+                <button class="lang-switch" onclick="toggleLanguage()">EN</button>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Menu -->
+    <div class="menu-overlay" id="menuOverlay">
+        <ul class="nav-menu">
+            <li><a href="index.html" onclick="closeMenu()" data-sr="Početna" data-en="Home">Početna</a></li>
+            <li><a href="onama.html" onclick="closeMenu()" data-sr="O nama" data-en="About">O nama</a></li>
+            <li><a href="usluge.html" onclick="closeMenu()" data-sr="Usluge" data-en="Services">Usluge</a></li>
+            <li><a href="zauzetost.html" onclick="closeMenu()" data-sr="Zauzetost" data-en="Occupancy">Zauzetost</a></li>
+            <li><a href="cenovnik.html" onclick="closeMenu()" data-sr="Cenovnik" data-en="Pricing">Cenovnik</a></li>
+            <li><a href="pravilnik.html" onclick="closeMenu()" data-sr="Pravilnik" data-en="Rules">Pravilnik</a></li>
+            <li><a href="recenzije.html" onclick="closeMenu()" data-sr="Recenzije" data-en="Reviews">Recenzije</a></li>
+            <li><a href="galerija.html" onclick="closeMenu()" data-sr="Galerija" data-en="Gallery">Galerija</a></li>
+            <li><a href="kontakt.html" onclick="closeMenu()" data-sr="Kontakt" data-en="Contact">Kontakt</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Content -->
+    <div class="page-container">
+        <section class="page-section visible">
+            <h1 class="page-title" data-sr="Galerija" data-en="Gallery">Galerija</h1>
+            
+            <div class="gallery-intro">
+                <p data-sr="Pogledajte našu teretanu i uverite se zašto smo najbolji izbor za vaš fitnes put." data-en="Take a look at our gym and see why we are the best choice for your fitness journey.">Pogledajte našu teretanu i uverite se zašto smo najbolji izbor za vaš fitnes put.</p>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Galerija se generiše dinamički iz JavaScript-a -->
+            </div>
+
+            <div class="gallery-note">
+                <i class="fas fa-info-circle"></i>
+                <p data-sr="Kliknite na bilo koju sliku za uvećan prikaz i slideshow. Koristite strelice za navigaciju." data-en="Click on any image for an enlarged view and slideshow. Use arrows for navigation.">Kliknite na bilo koju sliku za uvećan prikaz i slideshow. Koristite strelice za navigaciju.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-close" onclick="closeLightbox()">×</div>
+        <div class="lightbox-prev" onclick="prevImage()">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="lightbox-next" onclick="nextImage()">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="Gallery Image">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+        <div class="lightbox-counter" id="lightboxCounter">1 / 9</div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright" data-sr="© 2024 Central Gym. Sva prava zadržana." data-en="© 2024 Central Gym. All rights reserved.">© 2024 Central Gym. Sva prava zadržana.</p>
+        </div>
+    </footer>
+
+    <script src="js/loader.js"></script>
+    <script src="js/galerija.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

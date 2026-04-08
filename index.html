@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Gym - Postani jači nego juče</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="page-bg" style="background-image: url('assets/cntrl1.jpg')"></div>
+    <!-- Loader -->
+    <div class="loader-container" id="loader">
+        <div class="loader-content">
+            <div class="logo-loader">CENTRAL GYM</div>
+            <div class="weight-bar">
+                <div class="weight-plate left"></div>
+                <div class="bar">
+                    <div class="bar-fill" id="barFill"></div>
+                </div>
+                <div class="weight-plate right"></div>
+            </div>
+            <div class="loading-text" id="loadingText" data-sr="Učitavanje... 0%" data-en="Loading... 0%">Učitavanje... 0%</div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">CENTRAL GYM</a>
+            <div class="nav-right">
+                <button class="lang-switch" onclick="toggleLanguage()">EN</button>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Menu -->
+    <div class="menu-overlay" id="menuOverlay">
+        <ul class="nav-menu">
+            <li><a href="index.html" onclick="closeMenu()" data-sr="Početna" data-en="Home">Početna</a></li>
+            <li><a href="onama.html" onclick="closeMenu()" data-sr="O nama" data-en="About">O nama</a></li>
+            <li><a href="usluge.html" onclick="closeMenu()" data-sr="Usluge" data-en="Services">Usluge</a></li>
+            <li><a href="zauzetost.html" onclick="closeMenu()" data-sr="Zauzetost" data-en="Occupancy">Zauzetost</a></li>
+            <li><a href="cenovnik.html" onclick="closeMenu()" data-sr="Cenovnik" data-en="Pricing">Cenovnik</a></li>
+            <li><a href="pravilnik.html" onclick="closeMenu()" data-sr="Pravilnik" data-en="Rules">Pravilnik</a></li>
+            <li><a href="recenzije.html" onclick="closeMenu()" data-sr="Recenzije" data-en="Reviews">Recenzije</a></li>
+            <li><a href="galerija.html" onclick="closeMenu()" data-sr="Galerija" data-en="Gallery">Galerija</a></li>
+            <li><a href="kontakt.html" onclick="closeMenu()" data-sr="Kontakt" data-en="Contact">Kontakt</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 data-sr="Postani jači nego juče" data-en="Become Stronger Than Yesterday">Postani jači nego juče</h1>
+            <p data-sr="Najbolja teretana u gradu" data-en="The Best Gym in the City">Najbolja teretana u gradu</p>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="quick-nav">
+            <a href="onama.html" class="quick-nav-item">
+                <i class="fas fa-info-circle"></i>
+                <span data-sr="O nama" data-en="About Us">O nama</span>
+            </a>
+            <a href="usluge.html" class="quick-nav-item">
+                <i class="fas fa-dumbbell"></i>
+                <span data-sr="Usluge" data-en="Services">Usluge</span>
+            </a>
+            <a href="zauzetost.html" class="quick-nav-item">
+                <i class="fas fa-users"></i>
+                <span data-sr="Zauzetost" data-en="Occupancy">Zauzetost</span>
+            </a>
+            <a href="cenovnik.html" class="quick-nav-item">
+                <i class="fas fa-tags"></i>
+                <span data-sr="Cenovnik" data-en="Pricing">Cenovnik</span>
+            </a>
+            <a href="pravilnik.html" class="quick-nav-item">
+                <i class="fas fa-clipboard-list"></i>
+                <span data-sr="Pravilnik" data-en="Rules">Pravilnik</span>
+            </a>
+            <a href="recenzije.html" class="quick-nav-item">
+                <i class="fas fa-star"></i>
+                <span data-sr="Recenzije" data-en="Reviews">Recenzije</span>
+            </a>
+            <a href="galerija.html" class="quick-nav-item">
+                <i class="fas fa-images"></i>
+                <span data-sr="Galerija" data-en="Gallery">Galerija</span>
+            </a>
+            <a href="kontakt.html" class="quick-nav-item">
+                <i class="fas fa-envelope"></i>
+                <span data-sr="Kontakt" data-en="Contact">Kontakt</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright" data-sr="© 2024 Central Gym. Sva prava zadržana." data-en="© 2024 Central Gym. All rights reserved.">© 2024 Central Gym. Sva prava zadržana.</p>
+        </div>
+    </footer>
+
+    <script src="js/loader.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

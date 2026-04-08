@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recenzije - Central Gym</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="page-bg" style="background-image: url('assets/cntrl7.jpg')"></div>
+    <!-- Loader -->
+    <div class="loader-container" id="loader">
+        <div class="loader-content">
+            <div class="logo-loader">CENTRAL GYM</div>
+            <div class="weight-bar">
+                <div class="weight-plate left"></div>
+                <div class="bar">
+                    <div class="bar-fill" id="barFill"></div>
+                </div>
+                <div class="weight-plate right"></div>
+            </div>
+            <div class="loading-text" id="loadingText" data-sr="Učitavanje... 0%" data-en="Loading... 0%">Učitavanje... 0%</div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">CENTRAL GYM</a>
+            <div class="nav-right">
+                <button class="lang-switch" onclick="toggleLanguage()">EN</button>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Menu -->
+    <div class="menu-overlay" id="menuOverlay">
+        <ul class="nav-menu">
+            <li><a href="index.html" onclick="closeMenu()" data-sr="Početna" data-en="Home">Početna</a></li>
+            <li><a href="onama.html" onclick="closeMenu()" data-sr="O nama" data-en="About">O nama</a></li>
+            <li><a href="usluge.html" onclick="closeMenu()" data-sr="Usluge" data-en="Services">Usluge</a></li>
+            <li><a href="zauzetost.html" onclick="closeMenu()" data-sr="Zauzetost" data-en="Occupancy">Zauzetost</a></li>
+            <li><a href="cenovnik.html" onclick="closeMenu()" data-sr="Cenovnik" data-en="Pricing">Cenovnik</a></li>
+            <li><a href="pravilnik.html" onclick="closeMenu()" data-sr="Pravilnik" data-en="Rules">Pravilnik</a></li>
+            <li><a href="recenzije.html" onclick="closeMenu()" data-sr="Recenzije" data-en="Reviews">Recenzije</a></li>
+            <li><a href="galerija.html" onclick="closeMenu()" data-sr="Galerija" data-en="Gallery">Galerija</a></li>
+            <li><a href="kontakt.html" onclick="closeMenu()" data-sr="Kontakt" data-en="Contact">Kontakt</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Content -->
+    <div class="page-container">
+        <section class="page-section visible">
+            <h1 class="page-title" data-sr="Šta kažu naši članovi" data-en="What Our Members Say">Šta kažu naši članovi</h1>
+
+            <div class="review-stats">
+                <div class="stat-box">
+                    <div class="stat-number">4.9</div>
+                    <div class="stars-large">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p data-sr="Prosečna ocena" data-en="Average Rating">Prosečna ocena</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">30+</div>
+                    <p data-sr="Recenzija" data-en="Reviews">Recenzija</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">97%</div>
+                    <p data-sr="Preporuka" data-en="Recommendation">Preporuka</p>
+                </div>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">A</div>
+                        <div class="reviewer-info">
+                            <h4>Andrew</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-date" data-sr="Pre 7 meseci" data-en="7 months ago">Pre 7 meseci</span>
+                        </div>
+                    </div>
+                    <p class="review-text" data-original="en" data-en="This gym is sick as, it's like 300rsd for one day which is like 4 Aussie dollarydoo and mate Damjan is the nicest bloke always happy to chat and very professional, thanks guys 👍" data-sr="Ova teretana je odlična, oko 300 dinara za jedan dan što je oko 4 australijska dolara i drugar Damjan je najljubazniji momak, uvek spreman za razgovor i veoma profesionalan, hvala momci 👍">This gym is sick as, it's like 300rsd for one day which is like 4 Aussie dollarydoo and mate Damjan is the nicest bloke always happy to chat and very professional, thanks guys 👍</p>
+                    <button class="translate-btn" onclick="toggleReviewTranslation(this)" data-showing="original"><i class="fas fa-language"></i> <span data-sr="Prevedi na srpski" data-en="Translate to Serbian">Prevedi na srpski</span></button>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">D</div>
+                        <div class="reviewer-info">
+                            <h4>Dejan Sladojevic</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-date" data-sr="Pre godinu dana" data-en="A year ago">Pre godinu dana</span>
+                        </div>
+                    </div>
+                    <p class="review-text" data-original="en" data-en="Nice and big gym. Everything is new and clean and also they have showers. It's not separated by men and women It's all one big space." data-sr="Lepa i velika teretana. Sve je novo i čisto, a imaju i tuševe. Nije odvojeno za muškarce i žene, sve je jedan veliki prostor.">Nice and big gym. Everything is new and clean and also they have showers. It's not separated by men and women It's all one big space.</p>
+                    <button class="translate-btn" onclick="toggleReviewTranslation(this)" data-showing="original"><i class="fas fa-language"></i> <span data-sr="Prevedi na srpski" data-en="Translate to Serbian">Prevedi na srpski</span></button>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">J</div>
+                        <div class="reviewer-info">
+                            <h4>J</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-date" data-sr="Pre godinu dana" data-en="A year ago">Pre godinu dana</span>
+                        </div>
+                    </div>
+                    <p class="review-text" data-original="en" data-en="Excellent, brand new gym. All you need from stretch bands to cable tower. Day pass available, too and a great value for money." data-sr="Odlična, potpuno nova teretana. Sve što vam treba od elastičnih traka do cable tornja. Dnevna karta takođe dostupna i odličan odnos cene i kvaliteta.">Excellent, brand new gym. All you need from stretch bands to cable tower. Day pass available, too and a great value for money.</p>
+                    <button class="translate-btn" onclick="toggleReviewTranslation(this)" data-showing="original"><i class="fas fa-language"></i> <span data-sr="Prevedi na srpski" data-en="Translate to Serbian">Prevedi na srpski</span></button>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">N</div>
+                        <div class="reviewer-info">
+                            <h4>Nikola Moroz</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="review-date" data-sr="Pre godinu dana" data-en="A year ago">Pre godinu dana</span>
+                        </div>
+                    </div>
+                    <p class="review-text" data-original="en" data-en="Would be 5 if there would be more dumbbells :) overall great place, good people" data-sr="Bilo bi 5 da ima više bučica :) sve u svemu odlično mesto, dobri ljudi">Would be 5 if there would be more dumbbells :) overall great place, good people</p>
+                    <button class="translate-btn" onclick="toggleReviewTranslation(this)" data-showing="original"><i class="fas fa-language"></i> <span data-sr="Prevedi na srpski" data-en="Translate to Serbian">Prevedi na srpski</span></button>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">D</div>
+                        <div class="reviewer-info">
+                            <h4>dejan bdm</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-date" data-sr="Pre 8 meseci" data-en="8 months ago">Pre 8 meseci</span>
+                        </div>
+                    </div>
+                    <p class="review-text" data-original="en" data-en="Nice" data-sr="Lepo">Nice</p>
+                    <button class="translate-btn" onclick="toggleReviewTranslation(this)" data-showing="original"><i class="fas fa-language"></i> <span data-sr="Prevedi na srpski" data-en="Translate to Serbian">Prevedi na srpski</span></button>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">A</div>
+                        <div class="reviewer-info">
+                            <h4>Aleksandar Cindric</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-date" data-sr="Pre 8 meseci" data-en="8 months ago">Pre 8 meseci</span>
+                        </div>
+                    </div>
+                    <p class="review-text" data-original="en" data-en="Well thought out space, enough equipment for all tastes...clean...staff for 10" data-sr="Dobro osmišljen prostor, dovoljno opreme za sve ukuse...čisto...osoblje za 10">Well thought out space, enough equipment for all tastes...clean...staff for 10</p>
+                    <button class="translate-btn" onclick="toggleReviewTranslation(this)" data-showing="original"><i class="fas fa-language"></i> <span data-sr="Prevedi na srpski" data-en="Translate to Serbian">Prevedi na srpski</span></button>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">L</div>
+                        <div class="reviewer-info">
+                            <h4>Luka Kraljević</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-date" data-sr="Pre 9 meseci" data-en="9 months ago">Pre 9 meseci</span>
+                        </div>
+                    </div>
+                    <p class="review-text" data-original="en" data-en="Great gym, well equipped. Changing rooms clean and tidy, with showers and lockers." data-sr="Odlična teretana, dobro opremljena. Svlačionice čiste i uredne, sa tuševima i ormarićima.">Great gym, well equipped. Changing rooms clean and tidy, with showers and lockers.</p>
+                    <button class="translate-btn" onclick="toggleReviewTranslation(this)" data-showing="original"><i class="fas fa-language"></i> <span data-sr="Prevedi na srpski" data-en="Translate to Serbian">Prevedi na srpski</span></button>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">M</div>
+                        <div class="reviewer-info">
+                            <h4>Miša Krmpota</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-date" data-sr="Pre godinu dana" data-en="A year ago">Pre godinu dana</span>
+                        </div>
+                    </div>
+                    <p class="review-text" data-original="sr" data-sr="Super!!!! Samo treba lat raise masina i calf raises machine plssssss" data-en="Super!!!! Just need a lat raise machine and calf raises machine plssssss">Super!!!! Samo treba lat raise masina i calf raises machine plssssss</p>
+                    <button class="translate-btn" onclick="toggleReviewTranslation(this)" data-showing="original"><i class="fas fa-language"></i> <span data-sr="Prevedi na engleski" data-en="Translate to English">Prevedi na engleski</span></button>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">M</div>
+                        <div class="reviewer-info">
+                            <h4>Milica Beric</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-date" data-sr="Pre 2 godine" data-en="2 years ago">Pre 2 godine</span>
+                        </div>
+                    </div>
+                    <p class="review-text" data-original="en" data-en="The best gym in town! 🏋🏽" data-sr="Najbolja teretana u gradu! 🏋🏽">The best gym in town! 🏋🏽</p>
+                    <button class="translate-btn" onclick="toggleReviewTranslation(this)" data-showing="original"><i class="fas fa-language"></i> <span data-sr="Prevedi na srpski" data-en="Translate to Serbian">Prevedi na srpski</span></button>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">D</div>
+                        <div class="reviewer-info">
+                            <h4>D G</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-date" data-sr="Pre 2 godine" data-en="2 years ago">Pre 2 godine</span>
+                        </div>
+                    </div>
+                    <p class="review-text" data-original="en" data-en="The best Gym!" data-sr="Najbolja teretana!">The best Gym!</p>
+                    <button class="translate-btn" onclick="toggleReviewTranslation(this)" data-showing="original"><i class="fas fa-language"></i> <span data-sr="Prevedi na srpski" data-en="Translate to Serbian">Prevedi na srpski</span></button>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">I</div>
+                        <div class="reviewer-info">
+                            <h4>isidora simic</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-date" data-sr="Pre 2 godine" data-en="2 years ago">Pre 2 godine</span>
+                        </div>
+                    </div>
+                    <p class="review-text" data-original="en" data-en="The best!😁" data-sr="Najbolja!😁">The best!😁</p>
+                    <button class="translate-btn" onclick="toggleReviewTranslation(this)" data-showing="original"><i class="fas fa-language"></i> <span data-sr="Prevedi na srpski" data-en="Translate to Serbian">Prevedi na srpski</span></button>
+                </div>
+            </div>
+
+            <div class="review-cta">
+                <h3 data-sr="Postanite deo naše zajednice!" data-en="Become Part of Our Community!">Postanite deo naše zajednice!</h3>
+                <p data-sr="Pridružite se stotinama zadovoljnih članova" data-en="Join hundreds of satisfied members">Pridružite se stotinama zadovoljnih članova</p>
+                <a href="kontakt.html" class="cta-button" data-sr="Kontaktirajte nas" data-en="Contact Us">Kontaktirajte nas</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright" data-sr="© 2024 Central Gym. Sva prava zadržana." data-en="© 2024 Central Gym. All rights reserved.">© 2024 Central Gym. Sva prava zadržana.</p>
+        </div>
+    </footer>
+
+    <script src="js/loader.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

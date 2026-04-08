@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Central Gym</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    
+    <style>
+        .admin-container {
+            min-height: 100vh;
+            background: var(--dark-bg);
+            padding: 2rem;
+        }
+
+        .admin-header {
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .admin-header h1 {
+            color: var(--primary-gold);
+            font-size: 1.8rem;
+            text-transform: uppercase;
+        }
+
+        .logout-btn {
+            background: var(--red);
+            color: var(--text-white);
+            padding: 0.7rem 1.5rem;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255, 56, 56, 0.4);
+        }
+
+        .admin-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+
+        .admin-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .admin-section h2 {
+            color: var(--primary-gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .occupancy-display {
+            text-align: center;
+            padding: 2rem;
+            background: var(--dark-bg);
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .occupancy-display .count {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--primary-gold);
+        }
+
+        .occupancy-display .status {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .action-btn {
+            padding: 1.5rem;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .checkin-btn {
+            background: var(--green);
+            color: var(--dark-bg);
+        }
+
+        .checkin-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.3);
+        }
+
+        .checkout-btn {
+            background: var(--red);
+            color: var(--text-white);
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 56, 56, 0.3);
+        }
+
+        .checkout-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .reset-btn {
+            background: var(--text-gray);
+            color: var(--text-white);
+            grid-column: 1 / -1;
+        }
+
+        .reset-btn:hover {
+            background: var(--primary-gold);
+            color: var(--dark-bg);
+        }
+
+        .history-list {
+            display: grid;
+            gap: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            background: var(--dark-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .history-item.checkin {
+            border-left: 4px solid var(--green);
+        }
+
+        .history-item.checkout {
+            border-left: 4px solid var(--red);
+        }
+
+        .history-time {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stat-box {
+            background: var(--dark-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-box .number {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary-gold);
+        }
+
+        .stat-box .label {
+            color: var(--text-gray);
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .admin-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1><i class="fas fa-user-shield"></i> Admin Panel</h1>
+            <button class="logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Odjavi se
+            </button>
+        </div>
+
+        <div class="admin-content">
+            <!-- Trenutna zauzetost -->
+            <div class="admin-section">
+                <h2><i class="fas fa-users"></i> Trenutna zauzetost</h2>
+                <div class="occupancy-display">
+                    <div class="count" id="adminOccupancyCount">0</div>
+                    <div class="status" id="adminOccupancyStatus">Malo ljudi</div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn checkin-btn" onclick="adminCheckIn()">
+                        <i class="fas fa-user-plus"></i><br>Check-in
+                    </button>
+                    <button class="action-btn checkout-btn" id="checkoutBtn" onclick="adminCheckOut()">
+                        <i class="fas fa-user-minus"></i><br>Check-out
+                    </button>
+                    <button class="action-btn reset-btn" onclick="resetOccupancy()">
+                        <i class="fas fa-redo"></i> Resetuj zauzetost
+                    </button>
+                </div>
+            </div>
+
+            <!-- Statistika -->
+            <div class="admin-section">
+                <h2><i class="fas fa-chart-line"></i> Statistika</h2>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="number" id="todayCheckIns">0</div>
+                        <div class="label">Check-in-ova danas</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number" id="todayCheckOuts">0</div>
+                        <div class="label">Check-out-ova danas</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number" id="peakToday">0</div>
+                        <div class="label">Maksimum danas</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="number" id="currentStreak">0</div>
+                        <div class="label">Trenutno aktivnih</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Istorija aktivnosti -->
+            <div class="admin-section">
+                <h2><i class="fas fa-history"></i> Poslednje aktivnosti</h2>
+                <div class="history-list" id="historyList">
+                    <!-- Dinamički se puni -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pravilnik - Central Gym</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="page-bg" style="background-image: url('assets/cntrl6.jpg')"></div>
+    <!-- Loader -->
+    <div class="loader-container" id="loader">
+        <div class="loader-content">
+            <div class="logo-loader">CENTRAL GYM</div>
+            <div class="weight-bar">
+                <div class="weight-plate left"></div>
+                <div class="bar">
+                    <div class="bar-fill" id="barFill"></div>
+                </div>
+                <div class="weight-plate right"></div>
+            </div>
+            <div class="loading-text" id="loadingText" data-sr="Učitavanje... 0%" data-en="Loading... 0%">Učitavanje... 0%</div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">CENTRAL GYM</a>
+            <div class="nav-right">
+                <button class="lang-switch" onclick="toggleLanguage()">EN</button>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Menu -->
+    <div class="menu-overlay" id="menuOverlay">
+        <ul class="nav-menu">
+            <li><a href="index.html" onclick="closeMenu()" data-sr="Početna" data-en="Home">Početna</a></li>
+            <li><a href="onama.html" onclick="closeMenu()" data-sr="O nama" data-en="About">O nama</a></li>
+            <li><a href="usluge.html" onclick="closeMenu()" data-sr="Usluge" data-en="Services">Usluge</a></li>
+            <li><a href="zauzetost.html" onclick="closeMenu()" data-sr="Zauzetost" data-en="Occupancy">Zauzetost</a></li>
+            <li><a href="cenovnik.html" onclick="closeMenu()" data-sr="Cenovnik" data-en="Pricing">Cenovnik</a></li>
+            <li><a href="pravilnik.html" onclick="closeMenu()" data-sr="Pravilnik" data-en="Rules">Pravilnik</a></li>
+            <li><a href="recenzije.html" onclick="closeMenu()" data-sr="Recenzije" data-en="Reviews">Recenzije</a></li>
+            <li><a href="galerija.html" onclick="closeMenu()" data-sr="Galerija" data-en="Gallery">Galerija</a></li>
+            <li><a href="kontakt.html" onclick="closeMenu()" data-sr="Kontakt" data-en="Contact">Kontakt</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Content -->
+    <div class="page-container">
+        <section class="page-section visible">
+            <h1 class="page-title" data-sr="Pravilnik teretane" data-en="Gym Rules">Pravilnik teretane</h1>
+
+            <div class="rules-intro">
+                <p data-sr="Poštovani članovi, molimo vas da se pridržavate sledećih pravila kako bismo svi zajedno uživali u prijatnom i bezbednom okruženju za trening." data-en="Dear members, please follow these rules so that we can all enjoy a pleasant and safe training environment.">Poštovani članovi, molimo vas da se pridržavate sledećih pravila kako bismo svi zajedno uživali u prijatnom i bezbednom okruženju za trening.</p>
+            </div>
+
+            <div class="rules-grid">
+                <div class="rule-item">
+                    <div class="rule-icon"><i class="fas fa-shoe-prints"></i></div>
+                    <div class="rule-content">
+                        <h3 data-sr="Obavezne čiste patike" data-en="Clean Sneakers Required">Obavezne čiste patike</h3>
+                        <p data-sr="Pri korišćenju teretane, članovi obavezno moraju nositi čiste sportske patike. Treniranje u sobnoj obući ili bos je strogo zabranjeno iz higijenskih razloga i razloga bezbednosti." data-en="When using the gym, members must wear clean sports sneakers. Training in indoor shoes or barefoot is strictly prohibited for hygiene and safety reasons.">Pri korišćenju teretane, članovi obavezno moraju nositi čiste sportske patike. Treniranje u sobnoj obući ili bos je strogo zabranjeno iz higijenskih razloga i razloga bezbednosti.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-icon"><i class="fas fa-mitten"></i></div>
+                    <div class="rule-content">
+                        <h3 data-sr="Obavezan peškir" data-en="Towel Required">Obavezan peškir</h3>
+                        <p data-sr="Molimo članove da koriste peškire kako bi održali higijenu tokom vežbanja. Peškir je obavezan pri korišćenju ležećih klupa i trenažera. Nemojte zaboraviti svoj peškir kod kuće!" data-en="We ask members to use towels to maintain hygiene during exercise. A towel is mandatory when using benches and machines. Don't forget your towel at home!">Molimo članove da koriste peškire kako bi održali higijenu tokom vežbanja. Peškir je obavezan pri korišćenju ležećih klupa i trenažera. Nemojte zaboraviti svoj peškir kod kuće!</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-icon"><i class="fas fa-ban"></i></div>
+                    <div class="rule-content">
+                        <h3 data-sr="Ne bacajte tegove" data-en="Don't Drop Weights">Ne bacajte tegove</h3>
+                        <p data-sr="Članovi teretane moraju se pridržavati pravila korišćenja opreme kako bi izbegli povrede i oštećenja opreme. Molimo vas da ne bacate tegove jer to može biti opasno za vas i druge članove, kao i štetno po opremu." data-en="Gym members must follow equipment usage rules to avoid injuries and equipment damage. Please do not drop weights as it can be dangerous for you and other members, and damaging to the equipment.">Članovi teretane moraju se pridržavati pravila korišćenja opreme kako bi izbegli povrede i oštećenja opreme. Molimo vas da ne bacate tegove jer to može biti opasno za vas i druge članove, kao i štetno po opremu.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-icon"><i class="fas fa-undo"></i></div>
+                    <div class="rule-content">
+                        <h3 data-sr="Vraćajte tegove na mesto" data-en="Return Weights to Their Place">Vraćajte tegove na mesto</h3>
+                        <p data-sr="Tegove i prateću opremu vraćati na svoja mesta nakon korišćenja. Nakon korišćenja opreme, možete je očistiti dezinfekcionim sredstvom koje je dostupno u teretani. Pomozite nam da teretana bude uredna za sve." data-en="Return weights and accessories to their places after use. After using equipment, you can clean it with disinfectant available in the gym. Help us keep the gym tidy for everyone.">Tegove i prateću opremu vraćati na svoja mesta nakon korišćenja. Nakon korišćenja opreme, možete je očistiti dezinfekcionim sredstvom koje je dostupno u teretani. Pomozite nam da teretana bude uredna za sve.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-icon"><i class="fas fa-lock-open"></i></div>
+                    <div class="rule-content">
+                        <h3 data-sr="Stvari ne ostavljajte u ormarićima preko noći" data-en="Don't Leave Belongings in Lockers Overnight">Stvari ne ostavljajte u ormarićima preko noći</h3>
+                        <p data-sr="Molimo vas da vaše lične stvari ne ostavljate u ormarićima preko noći i nosite ključeve istih sa sobom. Teretana ne odgovara za izgubljene ili ukradene stvari. Ormarići se prazne svake noći." data-en="Please do not leave your personal belongings in lockers overnight and keep the keys with you. The gym is not responsible for lost or stolen items. Lockers are emptied every night.">Molimo vas da vaše lične stvari ne ostavljate u ormarićima preko noći i nosite ključeve istih sa sobom. Teretana ne odgovara za izgubljene ili ukradene stvari. Ormarići se prazne svake noći.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="rule-content">
+                        <h3 data-sr="Ograničite korišćenje telefona" data-en="Limit Phone Usage">Ograničite korišćenje telefona</h3>
+                        <p data-sr="Molimo vas da ograničite korišćenje mobilnih telefona u teretani. Dozvoljena je upotreba za muziku (sa slušalicama) i praćenje treninga, ali razgovori telefonom treba da se obave van glavne sale." data-en="Please limit the use of mobile phones in the gym. Usage for music (with headphones) and workout tracking is allowed, but phone calls should be taken outside the main hall.">Molimo vas da ograničite korišćenje mobilnih telefona u teretani. Dozvoljena je upotreba za muziku (sa slušalicama) i praćenje treninga, ali razgovori telefonom treba da se obave van glavne sale.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-icon"><i class="fas fa-users"></i></div>
+                    <div class="rule-content">
+                        <h3 data-sr="Poštujte druge članove" data-en="Respect Other Members">Poštujte druge članove</h3>
+                        <p data-sr="Budite obzirni prema drugim članovima. Ne zauzimajte opremu duže nego što je potrebno, dozvolite drugima da rade između vaših setova, i održavajte prijateljsku atmosferu." data-en="Be considerate of other members. Don't occupy equipment longer than necessary, allow others to work in between your sets, and maintain a friendly atmosphere.">Budite obzirni prema drugim članovima. Ne zauzimajte opremu duže nego što je potrebno, dozvolite drugima da rade između vaših setova, i održavajte prijateljsku atmosferu.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-icon"><i class="fas fa-heart"></i></div>
+                    <div class="rule-content">
+                        <h3 data-sr="Zdravstveno stanje" data-en="Health Condition">Zdravstveno stanje</h3>
+                        <p data-sr="Ukoliko imate bilo kakvih zdravstvenih problema ili sumnje, obavezno konsultujte svog lekara pre početka treninga. Takođe, obavestite naše trenere o eventualnim povredama ili ograničenjima." data-en="If you have any health problems or concerns, be sure to consult your doctor before starting training. Also, inform our trainers about any injuries or limitations.">Ukoliko imate bilo kakvih zdravstvenih problema ili sumnje, obavezno konsultujte svog lekara pre početka treninga. Takođe, obavestite naše trenere o eventualnim povredama ili ograničenjima.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-icon"><i class="fas fa-child"></i></div>
+                    <div class="rule-content">
+                        <h3 data-sr="Deca u pratnji" data-en="Children with Supervision">Deca u pratnji</h3>
+                        <p data-sr="Deca mlađa od 16 godina mogu koristiti teretanu samo uz obaveznu pratnju roditelja ili staratelja i uz odobrenje trenera. Deca moraju biti pod konstantnim nadzorom." data-en="Children under 16 can use the gym only with mandatory supervision of a parent or guardian and with trainer approval. Children must be under constant supervision.">Deca mlađa od 16 godina mogu koristiti teretanu samo uz obaveznu pratnju roditelja ili staratelja i uz odobrenje trenera. Deca moraju biti pod konstantnim nadzorom.</p>
+                    </div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-icon"><i class="fas fa-smoking-ban"></i></div>
+                    <div class="rule-content">
+                        <h3 data-sr="Zabrana pušenja" data-en="No Smoking">Zabrana pušenja</h3>
+                        <p data-sr="Pušenje je strogo zabranjeno u celom objektu teretane, uključujući svlačionice i zahode. Pušenje je dozvoljeno samo u označenim spoljašnjim zonama." data-en="Smoking is strictly prohibited in the entire gym facility, including locker rooms and restrooms. Smoking is only allowed in designated outdoor areas.">Pušenje je strogo zabranjeno u celom objektu teretane, uključujući svlačionice i zahode. Pušenje je dozvoljeno samo u označenim spoljašnjim zonama.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rules-footer">
+                <div class="rules-note">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p><strong>Napomena:</strong> <span data-sr="Nepoštovanje pravila može rezultirati suspenzijom ili ukidanjem članarine bez prava na povrat novca. Hvala na razumevanju i saradnji!" data-en="Violation of rules may result in suspension or cancellation of membership without the right to a refund. Thank you for your understanding and cooperation!">Nepoštovanje pravila može rezultirati suspenzijom ili ukidanjem članarine bez prava na povrat novca. Hvala na razumevanju i saradnji!</span></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright" data-sr="© 2024 Central Gym. Sva prava zadržana." data-en="© 2024 Central Gym. All rights reserved.">© 2024 Central Gym. Sva prava zadržana.</p>
+        </div>
+    </footer>
+
+    <script src="js/loader.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

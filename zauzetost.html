@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zauzetost - Central Gym</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="page-bg" style="background-image: url('assets/cntrl4.jpg')"></div>
+    <!-- Loader -->
+    <div class="loader-container" id="loader">
+        <div class="loader-content">
+            <div class="logo-loader">CENTRAL GYM</div>
+            <div class="weight-bar">
+                <div class="weight-plate left"></div>
+                <div class="bar">
+                    <div class="bar-fill" id="barFill"></div>
+                </div>
+                <div class="weight-plate right"></div>
+            </div>
+            <div class="loading-text" id="loadingText" data-sr="Učitavanje... 0%" data-en="Loading... 0%">Učitavanje... 0%</div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">CENTRAL GYM</a>
+            <div class="nav-right">
+                <button class="lang-switch" onclick="toggleLanguage()">EN</button>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Menu -->
+    <div class="menu-overlay" id="menuOverlay">
+        <ul class="nav-menu">
+            <li><a href="index.html" onclick="closeMenu()" data-sr="Početna" data-en="Home">Početna</a></li>
+            <li><a href="onama.html" onclick="closeMenu()" data-sr="O nama" data-en="About">O nama</a></li>
+            <li><a href="usluge.html" onclick="closeMenu()" data-sr="Usluge" data-en="Services">Usluge</a></li>
+            <li><a href="zauzetost.html" onclick="closeMenu()" data-sr="Zauzetost" data-en="Occupancy">Zauzetost</a></li>
+            <li><a href="cenovnik.html" onclick="closeMenu()" data-sr="Cenovnik" data-en="Pricing">Cenovnik</a></li>
+            <li><a href="pravilnik.html" onclick="closeMenu()" data-sr="Pravilnik" data-en="Rules">Pravilnik</a></li>
+            <li><a href="recenzije.html" onclick="closeMenu()" data-sr="Recenzije" data-en="Reviews">Recenzije</a></li>
+            <li><a href="galerija.html" onclick="closeMenu()" data-sr="Galerija" data-en="Gallery">Galerija</a></li>
+            <li><a href="kontakt.html" onclick="closeMenu()" data-sr="Kontakt" data-en="Contact">Kontakt</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Content -->
+    <div class="page-container">
+        <section class="page-section visible">
+            <h1 class="page-title" data-sr="Trenutna zauzetost" data-en="Current Occupancy">Trenutna zauzetost</h1>
+
+            <div class="occupancy-container">
+                <h3 data-sr="Trenutno u teretani:" data-en="Currently in the gym:">Trenutno u teretani:</h3>
+                <div class="occupancy-count" id="occupancyCount">0</div>
+                <div class="occupancy-status" id="occupancyStatus" data-sr="Malo ljudi" data-en="Few People">Malo ljudi</div>
+                <p class="refresh-info" data-sr="Ažurira se automatski svakih 20 sekundi" data-en="Updates automatically every 20 seconds">Ažurira se automatski svakih 20 sekundi</p>
+            </div>
+
+            <div class="info-cards">
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h3 data-sr="Najgušći periodi" data-en="Peak Hours">Najgušći periodi</h3>
+                    <p data-sr="Teretana je obično najgušća između 17:00 - 20:00 radnim danima." data-en="The gym is usually busiest between 17:00 - 20:00 on weekdays.">Teretana je obično najgušća između <strong>17:00 - 20:00</strong> radnim danima.</p>
+                    <p data-sr="Za mirniji trening preporučujemo 06:00 - 10:00 ili 14:00 - 16:00." data-en="For a calmer workout we recommend 06:00 - 10:00 or 14:00 - 16:00.">Za mirniji trening preporučujemo <strong>06:00 - 10:00</strong> ili <strong>14:00 - 16:00</strong>.</p>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-info-circle"></i>
+                    <h3 data-sr="Kako funkcioniše?" data-en="How Does It Work?">Kako funkcioniše?</h3>
+                    <p data-sr="Sistem prati broj članova u teretani u realnom vremenu." data-en="The system tracks the number of members in the gym in real time.">Sistem prati broj članova u teretani u realnom vremenu.</p>
+                    <p data-sr="Svako prisustvo se računa kao 60 minuta aktivnosti." data-en="Each presence counts as 60 minutes of activity.">Svako prisustvo se računa kao 60 minuta aktivnosti.</p>
+                    <p data-sr="Status zauzetosti se osvežava svakih 20 sekundi." data-en="Occupancy status refreshes every 20 seconds.">Status zauzetosti se osvežava svakih 20 sekundi.</p>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3 data-sr="Praćenje zauzetosti" data-en="Occupancy Tracking">Praćenje zauzetosti</h3>
+                    <p data-sr="Proverite zauzetost u realnom vremenu pre dolaska u teretanu." data-en="Check real-time occupancy before coming to the gym.">Proverite zauzetost u realnom vremenu pre dolaska u teretanu.</p>
+                    <p data-sr="Planirajte svoj trening u skladu sa trenutnom situacijom." data-en="Plan your workout according to the current situation.">Planirajte svoj trening u skladu sa trenutnom situacijom.</p>
+                    <p data-sr="Izbegnite gužvu i vežbajte u miru." data-en="Avoid the crowd and work out in peace.">Izbegnite gužvu i vežbajte u miru.</p>
+                </div>
+            </div>
+
+            <div class="occupancy-legend">
+                <h3 data-sr="Legenda zauzetosti" data-en="Occupancy Legend"><i class="fas fa-question-circle"></i> Legenda zauzetosti</h3>
+                <div class="legend-items">
+                    <div class="legend-item">
+                        <span class="legend-indicator status-low"></span>
+                        <div>
+                            <strong data-sr="Malo ljudi (0-10 osoba)" data-en="Few People (0-10 people)">Malo ljudi (0-10 osoba)</strong>
+                            <p data-sr="Idealno vreme za trening, sva oprema dostupna" data-en="Ideal time for training, all equipment available">Idealno vreme za trening, sva oprema dostupna</p>
+                        </div>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-indicator status-medium"></span>
+                        <div>
+                            <strong data-sr="Srednje (11-25 osoba)" data-en="Moderate (11-25 people)">Srednje (11-25 osoba)</strong>
+                            <p data-sr="Umerena gužva, većina opreme dostupna" data-en="Moderate crowd, most equipment available">Umerena gužva, većina opreme dostupna</p>
+                        </div>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-indicator status-high"></span>
+                        <div>
+                            <strong data-sr="Velika gužva (25+ osoba)" data-en="Very Crowded (25+ people)">Velika gužva (25+ osoba)</strong>
+                            <p data-sr="Teretana puna, možda ćete morati da čekate na opremu" data-en="Gym is full, you may have to wait for equipment">Teretana puna, možda ćete morati da čekate na opremu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright" data-sr="© 2024 Central Gym. Sva prava zadržana." data-en="© 2024 Central Gym. All rights reserved.">© 2024 Central Gym. Sva prava zadržana.</p>
+        </div>
+    </footer>
+
+    <script src="js/loader.js"></script>
+    <script src="js/occupancy.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

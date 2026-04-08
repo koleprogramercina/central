@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O nama - Central Gym</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="page-bg" style="background-image: url('assets/cntrl2.jpg')"></div>
+    <!-- Loader -->
+    <div class="loader-container" id="loader">
+        <div class="loader-content">
+            <div class="logo-loader">CENTRAL GYM</div>
+            <div class="weight-bar">
+                <div class="weight-plate left"></div>
+                <div class="bar">
+                    <div class="bar-fill" id="barFill"></div>
+                </div>
+                <div class="weight-plate right"></div>
+            </div>
+            <div class="loading-text" id="loadingText" data-sr="Učitavanje... 0%" data-en="Loading... 0%">Učitavanje... 0%</div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">CENTRAL GYM</a>
+            <div class="nav-right">
+                <button class="lang-switch" onclick="toggleLanguage()">EN</button>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fullscreen Menu -->
+    <div class="menu-overlay" id="menuOverlay">
+        <ul class="nav-menu">
+            <li><a href="index.html" onclick="closeMenu()" data-sr="Početna" data-en="Home">Početna</a></li>
+            <li><a href="onama.html" onclick="closeMenu()" data-sr="O nama" data-en="About">O nama</a></li>
+            <li><a href="usluge.html" onclick="closeMenu()" data-sr="Usluge" data-en="Services">Usluge</a></li>
+            <li><a href="zauzetost.html" onclick="closeMenu()" data-sr="Zauzetost" data-en="Occupancy">Zauzetost</a></li>
+            <li><a href="cenovnik.html" onclick="closeMenu()" data-sr="Cenovnik" data-en="Pricing">Cenovnik</a></li>
+            <li><a href="pravilnik.html" onclick="closeMenu()" data-sr="Pravilnik" data-en="Rules">Pravilnik</a></li>
+            <li><a href="recenzije.html" onclick="closeMenu()" data-sr="Recenzije" data-en="Reviews">Recenzije</a></li>
+            <li><a href="galerija.html" onclick="closeMenu()" data-sr="Galerija" data-en="Gallery">Galerija</a></li>
+            <li><a href="kontakt.html" onclick="closeMenu()" data-sr="Kontakt" data-en="Contact">Kontakt</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Content -->
+    <div class="page-container">
+        <section class="page-section visible">
+            <h1 class="page-title" data-sr="O nama" data-en="About Us">O nama</h1>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h3 data-sr="Dobrodošli u Central Gym" data-en="Welcome to Central Gym">Dobrodošli u Central Gym</h3>
+                    <p data-sr="Central Gym je moderno opremljena teretana u srcu grada, posvećena vašem zdravlju i fitnesu. Sa više od 10 godina iskustva, pružamo našim članovima vrhunsku opremu, profesionalne trenere i motivišuću atmosferu." data-en="Central Gym is a modern equipped gym in the heart of the city, dedicated to your health and fitness. With over 10 years of experience, we provide our members with top-quality equipment, professional trainers, and a motivating atmosphere.">
+                        Central Gym je moderno opremljena teretana u srcu grada, posvećena vašem zdravlju i fitnesu.
+                        Sa više od 10 godina iskustva, pružamo našim članovima vrhunsku opremu, profesionalne trenere
+                        i motivišuću atmosferu.
+                    </p>
+                    <p data-sr="Naš tim je tu da vas podržava na svakom koraku ka vašim fitnes ciljevima, bez obzira da li ste početnik ili iskusan sportista." data-en="Our team is here to support you every step of the way towards your fitness goals, whether you are a beginner or an experienced athlete.">
+                        Naš tim je tu da vas podržava na svakom koraku ka vašim fitnes ciljevima, bez obzira da li ste
+                        početnik ili iskusan sportista.
+                    </p>
+                    <p data-sr="Verujemo da je fitness način života, ne samo obaveza. Zato smo stvorili prostor gde se osećate dobrodošlo, motivsano i podržano. Naša zajednica je naša snaga." data-en="We believe that fitness is a way of life, not just an obligation. That's why we've created a space where you feel welcome, motivated, and supported. Our community is our strength.">
+                        Verujemo da je fitness način života, ne samo obaveza. Zato smo stvorili prostor gde se osećate
+                        dobrodošlo, motivsano i podržano. Naša zajednica je naša snaga.
+                    </p>
+                </div>
+
+                <div class="about-features">
+                    <div class="feature-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <h3 data-sr="Vrhunska oprema" data-en="Premium Equipment">Vrhunska oprema</h3>
+                        <p data-sr="Najsavremeniji trenažeri i oprema vodećih svetskih brendova" data-en="State-of-the-art machines and equipment from leading global brands">Najsavremeniji trenažeri i oprema vodećih svetskih brendova</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-users"></i>
+                        <h3 data-sr="Profesionalni treneri" data-en="Professional Trainers">Profesionalni treneri</h3>
+                        <p data-sr="Sertifikovani treneri sa dugogodišnjim iskustvom" data-en="Certified trainers with years of experience">Sertifikovani treneri sa dugogodišnjim iskustvom</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-fire"></i>
+                        <h3 data-sr="Motivišuća atmosfera" data-en="Motivating Atmosphere">Motivišuća atmosfera</h3>
+                        <p data-sr="Zajednica koja vas podstiče da dajete sve od sebe" data-en="A community that encourages you to give your best">Zajednica koja vas podstiče da dajete sve od sebe</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-clock"></i>
+                        <h3 data-sr="Fleksibilno radno vreme" data-en="Flexible Working Hours">Fleksibilno radno vreme</h3>
+                        <p data-sr="Otvoreni smo od ranog jutra do kasno uveče" data-en="We are open from early morning until late evening">Otvoreni smo od ranog jutra do kasno uveče</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label" data-sr="Godina iskustva" data-en="Years of Experience">Godina iskustva</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2000+</div>
+                    <div class="stat-label" data-sr="Zadovoljnih članova" data-en="Satisfied Members">Zadovoljnih članova</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label" data-sr="Profesionalnih trenera" data-en="Professional Trainers">Profesionalnih trenera</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">500m²</div>
+                    <div class="stat-label" data-sr="Prostor teretane" data-en="Gym Space">Prostor teretane</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright" data-sr="© 2024 Central Gym. Sva prava zadržana." data-en="© 2024 Central Gym. All rights reserved.">© 2024 Central Gym. Sva prava zadržana.</p>
+        </div>
+    </footer>
+
+    <script src="js/loader.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
