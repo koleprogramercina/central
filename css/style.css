@@ -1130,7 +1130,7 @@ body {
     gap: 1.5rem;
 }
 
-.contact-item i {
+.contact-item > i {
     font-size: 2rem;
     color: var(--primary-gold);
     min-width: 40px;
@@ -1171,6 +1171,15 @@ body {
     font-size: 1.2rem;
     transition: var(--transition);
     border: 2px solid var(--primary-gold);
+}
+
+.social-links-inline a i {
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
 }
 
 .social-links-inline a:hover {
@@ -1289,6 +1298,15 @@ footer {
     font-size: 1.5rem;
     transition: var(--transition);
     border: 2px solid var(--primary-gold);
+}
+
+.social-links a i {
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
 }
 
 .social-links a:hover {
